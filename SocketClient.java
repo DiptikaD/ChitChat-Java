@@ -6,6 +6,7 @@ import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.io.PrintWriter;
 import java.net.Socket;
+import java.util.ArrayList;
 
 @SuppressWarnings("serial")
 public class SocketClient extends JFrame implements ActionListener, Runnable {
@@ -30,17 +31,28 @@ public class SocketClient extends JFrame implements ActionListener, Runnable {
 
         textArea.setBackground(new Color(0, 0, 0));
 
-/*
+
          JMenu helpMenu = new JMenu("Help");
         JMenuItem update = new JMenuItem("Update Information");
         JMenuItem connect_List = new JMenuItem("Visitor List");
+        JPopupMenu visitorListPopUp = new JPopupMenu();
+        ArrayList<String> visitors = new ArrayList<>();
+//        visitors.add(ServerThread.currentThread().getName());
+        visitorListPopUp.add(ServerThread.currentThread().getName());
 
         helpMenu.add(update);
         helpMenu.add(connect_List);
+        connect_List.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+            visitorListPopUp.show(helpMenu,50, 50);
+            }
+        });
+        connect_List.add(ServerThread.currentThread().getName(), new Container());
 
         menuBar.add(helpMenu);
         setJMenuBar(menuBar);
-*/
+
         getContentPane().add(jp, "Center");
         input_Text.setText("Enter your Message:");
         input_Text.setToolTipText("Enter your Message");

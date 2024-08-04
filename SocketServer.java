@@ -6,33 +6,46 @@ import java.net.InetAddress;
 import java.net.ServerSocket;
 import java.net.Socket;
 import java.util.ArrayList;
+import java.util.logging.FileHandler;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import java.util.logging.SimpleFormatter;
+
+//run server first, then run the client for additional chatters
 
 public class SocketServer {
     ServerSocket server;
     Socket sk;
     InetAddress addr;
-    
-    ArrayList<ServerThread> list = new ArrayList<ServerThread>();
 
-    public SocketServer() {
+    ArrayList<ServerThread> list = new ArrayList<ServerThread>();
+    Logger logger = Logger.getLogger(SocketServer.class.getName());
+    FileHandler fileHandler = new FileHandler("/Users/devi/Dev/Projects/ChitChat-Java/log.txt", true);
+
+
+    public SocketServer() throws IOException {
+//        Logger logger = Logger.getLogger(SocketServer.class.getName());
+//        FileHandler fileHandler = new FileHandler("/Users/devi/Dev/Projects/ChitChat-Java/log.txt", true);
+        fileHandler.setFormatter(new SimpleFormatter());
+        logger.addHandler(fileHandler);
         try {
+            //loopback address which is used to refer to itself
         	addr = InetAddress.getByName("127.0.0.1");
         	//addr = InetAddress.getByName("192.168.43.1");
             
         	server = new ServerSocket(1234,50,addr);
-            System.out.println("\n Waiting for Client connection");
+            logger.info("\n Waiting for Client connection");
             SocketClient.main(null);
             while(true) {
                 sk = server.accept();
-                System.out.println(sk.getInetAddress() + " connect");
-
+                logger.info(sk.getInetAddress() + " connect");
                 //Thread connected clients to ArrayList
                 ServerThread st = new ServerThread(this);
                 addThread(st);
                 st.start();
             }
         } catch(IOException e) {
-            System.out.println(e + "-> ServerSocket failed");
+            logger.severe(e + "-> ServerSocket failed");
         }
     }
 
@@ -50,7 +63,7 @@ public class SocketServer {
         }
     }
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException {
         new SocketServer();
     }
 }
@@ -60,12 +73,21 @@ class ServerThread extends Thread {
     PrintWriter pw;
     String name;
 
-    public ServerThread(SocketServer server) {
+    public ServerThread(SocketServer server) throws IOException {
         this.server = server;
     }
 
+    Logger logger = Logger.getLogger(SocketServer.class.getName());
+    FileHandler fileHandler = new FileHandler("/Users/devi/Dev/Projects/ChitChat-Java/log.txt", true);
+
+//    public String getUserName() {
+//        return name;
+//    }
+
     @Override
     public void run() {
+        fileHandler.setFormatter(new SimpleFormatter());
+        logger.addHandler(fileHandler);
         try {
             // read
             BufferedReader br = new BufferedReader(new InputStreamReader(server.sk.getInputStream()));
@@ -86,8 +108,8 @@ class ServerThread extends Thread {
             //Remove the current thread from the ArrayList.
             server.removeThread(this);
             server.broadCast("**["+name+"] Left**");
-            System.out.println(server.sk.getInetAddress()+" - ["+name+"] Exit");
-            System.out.println(e + "---->");
+            logger.info(server.sk.getInetAddress()+" - ["+name+"] Exit");
+            logger.severe(e + "---->");
         }
     }
 }

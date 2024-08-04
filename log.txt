@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2024-08-04T20:32:38.957180Z</date>
+  <millis>1722803558957</millis>
+  <nanos>180000</nanos>
+  <sequence>0</sequence>
+  <logger>SocketServer</logger>
+  <level>INFO</level>
+  <class>SocketServer</class>
+  <method>&lt;init&gt;</method>
+  <thread>1</thread>
+  <message>/127.0.0.1 connect</message>
+</record>
+</log>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2024-08-04T20:33:38.994866Z</date>
+  <millis>1722803618994</millis>
+  <nanos>866000</nanos>
+  <sequence>0</sequence>
+  <logger>SocketServer</logger>
+  <level>INFO</level>
+  <class>SocketServer</class>
+  <method>&lt;init&gt;</method>
+  <thread>1</thread>
+  <message>/127.0.0.1 connect</message>
+</record>
+</log>
+Aug 04, 2024 4:37:46 PM SocketServer <init>
+INFO: 
+ Waiting for Client connection
+Aug 04, 2024 4:37:53 PM SocketServer <init>
+INFO: /127.0.0.1 connect
+Aug 04, 2024 4:43:46 PM SocketServer <init>
+INFO: 
+ Waiting for Client connection
+Aug 04, 2024 4:43:51 PM SocketServer <init>
+INFO: /127.0.0.1 connect
+Aug 04, 2024 4:44:19 PM SocketServer <init>
+INFO: 
+ Waiting for Client connection
+Aug 04, 2024 4:54:42 PM SocketServer <init>
+INFO: 
+ Waiting for Client connection
+Aug 04, 2024 4:54:48 PM SocketServer <init>
+INFO: /127.0.0.1 connect
+Aug 04, 2024 4:55:09 PM SocketServer <init>
+INFO: 
+ Waiting for Client connection
+Aug 04, 2024 4:56:03 PM SocketServer <init>
+INFO: 
+ Waiting for Client connection
+Aug 04, 2024 4:56:18 PM SocketServer <init>
+INFO: /127.0.0.1 connect
+Aug 04, 2024 4:56:23 PM SocketServer <init>
+INFO: /127.0.0.1 connect
+Aug 04, 2024 4:58:48 PM SocketServer <init>
+INFO: 
+ Waiting for Client connection
+Aug 04, 2024 4:58:54 PM SocketServer <init>
+INFO: /127.0.0.1 connect
+Aug 04, 2024 5:00:42 PM SocketServer <init>
+INFO: 
+ Waiting for Client connection
+Aug 04, 2024 5:00:49 PM SocketServer <init>
+INFO: /127.0.0.1 connect
+Aug 04, 2024 5:08:00 PM SocketServer <init>
+INFO: 
+ Waiting for Client connection
+Aug 04, 2024 5:08:08 PM SocketServer <init>
+INFO: /127.0.0.1 connect
+Aug 04, 2024 5:21:18 PM SocketServer <init>
+INFO: 
+ Waiting for Client connection
+Aug 04, 2024 5:21:24 PM SocketServer <init>
+INFO: /127.0.0.1 connect
+Aug 04, 2024 5:22:47 PM SocketServer <init>
+INFO: 
+ Waiting for Client connection
+Aug 04, 2024 5:22:53 PM SocketServer <init>
+INFO: /127.0.0.1 connect
